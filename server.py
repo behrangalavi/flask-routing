@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import request, jsonify
 from flask import render_template
-from libs.graph import *
 
 server = Flask(name)
 

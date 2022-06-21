@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import request
+from flask import Flask, request, jsonify
 
 server = Flask(__name__)
 
@@ -10,8 +9,11 @@ def hello():
 
 @server.route("/visualizePrediction", methods=["GET","POST"])
 def visualizePrediction():
-    return "found visualizePrediction %s" % (request.method)
-    
+    if request.method == "GET":
+        return "found visualizePrediction %s" % (request.method)
+    else:
+        requestJson = request.get_json()
+        return jsonify(requestJson["prediction"])
 
 
 if __name__ == "__main__":

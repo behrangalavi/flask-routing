@@ -11,9 +11,8 @@ def hello():
 def visualizePrediction():
     if request.method == "GET":
         return "found visualizePrediction %s" % (request.method)
-    else:
-        requestJson = request.get_json()
-        return jsonify(requestJson["prediction"])
+    requestJson = request.get_json()
+    return jsonify(requestJson["prediction"])
 
 
 if __name__ == "__main__":
